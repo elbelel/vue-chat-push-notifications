@@ -1,18 +1,42 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+      <router-view/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import { CometChat } from "@cometchat-pro/chat";
+import firebaseInitialize from './firebase'
+import './App.css'
 
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
+  created(){
+   this.initializeComet()
+  firebaseInitialize()
+  },
+    methods: {
+      initializeComet(){
+        const appID = '32980c2ccb18ce4';
+            const region = 'us';
+            const appSetting = new CometChat.AppSettingsBuilder()
+              .subscribePresenceForAllUsers()
+              .setRegion(region)
+              .build();
+
+            CometChat.init(appID, appSetting).then(
+              () => {
+                console.log('Initialization completed successfully');
+                // You can now call login function.
+              },
+              (error) => {
+                console.log('Initialization failed with error:', error);
+                // Check the reason for error and take appropriate action.
+              }
+        );
+
+      }
+    }
+
 }
 </script>
 
@@ -25,4 +49,5 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
+
 </style>
