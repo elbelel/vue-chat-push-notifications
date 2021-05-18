@@ -23,8 +23,6 @@
 
 <script>
 import { CometChat } from "@cometchat-pro/chat";
-// import firebase from 'firebase/app'
-// import 'firebase/firebase-messaging'
 
 export default {
   data() {
@@ -35,7 +33,7 @@ export default {
   },
   methods: {
     Login() {
-      var AUTH_KEY ='08d6685ab6ca8dd6d2f9dd96d717e244e0ef59cd';
+      var AUTH_KEY ='AUTH_KEY';
       this.showSpinner = true;
       console.log(this.username)
       CometChat.login(this.username,AUTH_KEY).then(

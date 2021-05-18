@@ -6,14 +6,14 @@ import {CometChat} from "@cometchat-pro/chat"
 
 export default async function firebaseInitialize (){
 var firebaseConfig = {
-    apiKey: "AIzaSyDxlkwvNN-PuKVIGR2CB8IzDTD-ohFVdL4",
-    authDomain: "proven-citizen-250223.firebaseapp.com",
-    databaseURL: 'https://proven-citizen-250223.firebaseio.com',
-    projectId: "proven-citizen-250223",
-    storageBucket: "proven-citizen-250223.appspot.com",
-    messagingSenderId: "436543649212",
-    appId: "1:436543649212:web:870a96c50603f850ca67b9",
-    measurementId: "G-Y76ZVP4205"
+          apiKey: "apiKey",
+          authDomain: "authDomain",
+          databaseURL: 'databaseURL',
+          projectId: "projectId",
+          storageBucket: "storageBucket",
+          messagingSenderId: "messagingSenderId",
+          appId: "appId",
+          measurementId: "measurementId"
 }
 
 firebase.initializeApp(firebaseConfig)
@@ -22,6 +22,7 @@ firebase.initializeApp(firebaseConfig)
     
 messaging.getToken({ vapidKey: 'BCXBaoiGbYv0LJAahgVrc9NGkz_XgaMu413DR4TIfiiVflsIsiZGIvWCRjdFAOTBHlq6WzeZA0IdQJECv0QLO6Q' }).then((currentToken) => {
   if (currentToken) {
+    console.log(currentToken)
     CometChat.registerTokenForPushNotification(currentToken).then((payload)=>{
         console.log("from comet",payload)
         

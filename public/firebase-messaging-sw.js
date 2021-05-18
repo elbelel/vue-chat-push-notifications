@@ -4,14 +4,14 @@ importScripts('https://www.gstatic.com/firebasejs/8.4.3/firebase-app.js');
 importScripts('https://www.gstatic.com/firebasejs/8.4.3/firebase-messaging.js');
 
 var firebaseConfig = {
-    apiKey: "AIzaSyDxlkwvNN-PuKVIGR2CB8IzDTD-ohFVdL4",
-    authDomain: "proven-citizen-250223.firebaseapp.com",
-    databaseURL: 'https://proven-citizen-250223.firebaseio.com',
-    projectId: "proven-citizen-250223",
-    storageBucket: "proven-citizen-250223.appspot.com",
-    messagingSenderId: "436543649212",
-    appId: "1:436543649212:web:870a96c50603f850ca67b9",
-    measurementId: "G-Y76ZVP4205"
+      apiKey: "apiKey",
+      authDomain: "authDomain",
+      databaseURL: 'databaseURL',
+      projectId: "projectId",
+      storageBucket: "storageBucket",
+      messagingSenderId: "messagingSenderId",
+      appId: "appId",
+      measurementId: "measurementId"
 }
 
 firebase.initializeApp(firebaseConfig)

@@ -16,14 +16,14 @@ export default {
   },
     methods: {
       initializeComet(){
-        const appID = '32980c2ccb18ce4';
-            const region = 'us';
+        const APP_ID = 'APP_ID';
+            const REGION = 'us';
             const appSetting = new CometChat.AppSettingsBuilder()
               .subscribePresenceForAllUsers()
-              .setRegion(region)
+              .setRegion(REGION)
               .build();
 
-            CometChat.init(appID, appSetting).then(
+            CometChat.init(APP_ID, appSetting).then(
               () => {
                 console.log('Initialization completed successfully');
                 // You can now call login function.

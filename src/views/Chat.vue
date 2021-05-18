@@ -7,14 +7,10 @@
 </template>
 
 <script>
-// @ is an alias to /src
 import { CometChat } from "@cometchat-pro/chat";
 import {CometChatUserListWithMessages} from '../cometchat-ui'
 import firebase from 'firebase/app'
 import 'firebase/firebase-messaging'
-// import { COMETCHAT_CONSTANTS } from '../cometchat-ui/resources/constants';
-// import Spinner from "../components/Spinner.vue";
-// import { updateFirebaseLoggedInUser } from './../pushNotification';
 export default {
   components:{
 CometChatUserListWithMessages
@@ -23,19 +19,13 @@ CometChatUserListWithMessages
      async logout(){
   
   try {
-    console.log("checking logout")
-               const messaging = firebase.messaging()
-
-    // Delete the token
+      
+  const messaging = firebase.messaging()
     await messaging.deleteToken();
-    
-    // Logout the user
     await CometChat.logout();
-    console.log('5. Logged out');
-
-    // Refresh the page.
-     window.localStorage.removeItem('FCM_TOKEN');
-    window.location.reload();
+    this.$router.push({
+        name: "homepage"
+      });
   } catch (error) {
     console.error(error);
   }
